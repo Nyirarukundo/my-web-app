@@ -1,9 +1,15 @@
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello, this is a basic web app!\n');
+if (req.url === '/about') {
+res.statusCode = 200;
+res.setHeader('Content-Type', 'text/plain');
+res.end('About Page\n');
+} else {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Hello, this is a basic web app!\n');
+  }
 });
 
 server.listen(3000, () => {
